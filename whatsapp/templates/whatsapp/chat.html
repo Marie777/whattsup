@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}You are talking to {{ receiver.username }}{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'index' %}">Back</a>
+    </div>
+
+    {% if message_list %}
+        <ul>
+            {% for message in message_list %}
+                <li>
+                        ({{ message.pub_date }}) <b>{{ message.sender.username }}</b>: {{ message.text }}
+                </li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        There is no messages!
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Send</button>
+    </form>
+{% endblock %}

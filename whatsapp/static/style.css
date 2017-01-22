@@ -1,0 +1,7 @@
+.registration-form label, .registration-form button, .login-form label, .login-form button {
+    display:block;
+}
+
+.helptext {
+    color: #ccc;
+}
